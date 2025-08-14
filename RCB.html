@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Royal Challengers Bangalore | Official Fan Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rcb-red: #FF0000;
+            --rcb-black: #000000;
+            --rcb-gold: #FFD700;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/47caeef8-89f8-44f8-9e08-5f492721c2a3.png') center/cover no-repeat;
+            height: 80vh;
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .match-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--rcb-red);
+        }
+        
+        .match-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .stats-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+        }
+        
+        .stats-fill {
+            height: 100%;
+            border-radius: 4px;
+            background-color: var(--rcb-red);
+        }
+        
+        .news-card {
+            transition: all 0.3s ease;
+        }
+        
+        .news-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+            }
+        }
+        
+        .tabs button.active {
+            border-bottom: 3px solid var(--rcb-red);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/04209d9d-a022-4e19-bd03-d49037d71e12.png" alt="Royal Challengers Bangalore logo with lion icon and RCB text" class="h-12">
+                <span class="text-xl font-bold hidden md:block">ROYAL CHALLENGERS BANGALORE</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-red-500 font-medium">Home</a>
+                <a href="#matches" class="hover:text-red-500 font-medium">Matches</a>
+                <a href="#players" class="hover:text-red-500 font-medium">Players</a>
+                <a href="#stats" class="hover:text-red-500 font-medium">Statistics</a>
+                <a href="#news" class="hover:text-red-500 font-medium">News</a>
+                <a href="#fan-zone" class="hover:text-red-500 font-medium">Fan Zone</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black py-2 px-4">
+            <a href="#home" class="block py-2 text-white hover:text-red-500">Home</a>
+            <a href="#matches" class="block py-2 text-white hover:text-red-500">Matches</a>
+            <a href="#players" class="block py-2 text-white hover:text-red-500">Players</a>
+            <a href="#stats" class="block py-2 text-white hover:text-red-500">Statistics</a>
+            <a href="#news" class="block py-2 text-white hover:text-red-500">News</a>
+            <a href="#fan-zone" class="block py-2 text-white hover:text-red-500">Fan Zone</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-bounce">PLAY BOLD</h1>
+            <p class="text-xl md:text-2xl mb-8"><b><i>EESALA CUP NAMDU </i></b><br>The official fan hub for Royal Challengers Bangalore</br></p>
+            <div class="flex justify-center space-x-4">
+                <a href="#news"><button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold">Latest News</button></a>
+                <a href="#matches"><button class="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-lg font-bold">Upcoming Matches</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="bg-black text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-4">NEXT MATCH IN:</h2>
+            <div id="countdown" class="flex justify-center space-x-4 md:space-x-8">
+                <div class="text-center">
+                    <div class="text-3xl md:text-5xl font-bold days">00</div>
+                    <div class="text-sm uppercase">Days</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-5xl font-bold hours">00</div>
+                    <div class="text-sm uppercase">Hours</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-5xl font-bold minutes">00</div>
+                    <div class="text-sm uppercase">Minutes</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-5xl font-bold seconds">00</div>
+                    <div class="text-sm uppercase">Seconds</div>
+                </div>
+            </div>
+            <p class="mt-4 text-lg">RCB vs Mumbai Indians | M. Chinnaswamy Stadium, Bengaluru</p>
+        </div>
+    </section>
+
+    <!-- Matches Section -->
+    <section id="matches" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">UPCOMING MATCHES</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Match 1 -->
+                <div class="match-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500">IPL 2024 | Match 10</span>
+                        <span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm">LIVE</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0e12acb9-d0ba-4947-ba96-1ebc95b75376.png" alt="RCB team logo" class="h-12 mr-3">
+                            <span class="font-bold">RCB</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500">27 MAR</span>
+                            <div class="font-bold">7:30 PM</div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-bold">MI</span>
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/01441372-d8bd-4232-8aa2-4171c192648a.png" alt="Mumbai Indians team logo" class="h-12 ml-3">
+                        </div>
+                    </div>
+                    <div class="text-center text-sm text-gray-600">
+                        M. Chinnaswamy Stadium, Bengaluru
+                    </div>
+                    <button class="w-full mt-4 bg-black hover:bg-gray-800 text-white py-2 rounded-lg font-bold">Get Tickets</button>
+                </div>
+                
+                <!-- Match 2 -->
+                <div class="match-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500">IPL 2024 | Match 17</span>
+                        <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">UPCOMING</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a0fd3a2f-8480-479c-9203-9925908cc5ee.png" alt="RCB team logo" class="h-12 mr-3">
+                            <span class="font-bold">RCB</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500">01 APR</span>
+                            <div class="font-bold">7:30 PM</div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-bold">KKR</span>
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7e147309-ec44-4475-af99-ed68bf6af5e5.png" alt="Kolkata Knight Riders team logo" class="h-12 ml-3">
+                        </div>
+                    </div>
+                    <div class="text-center text-sm text-gray-600">
+                        Eden Gardens, Kolkata
+                    </div>
+                    <button class="w-full mt-4 bg-black hover:bg-gray-800 text-white py-2 rounded-lg font-bold">Get Tickets</button>
+                </div>
+                
+                <!-- Match 3 -->
+                <div class="match-card bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500">IPL 2024 | Match 25</span>
+                        <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">UPCOMING</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c12da909-9c1d-4f1b-9f1d-cd2159720e67.png" alt="RCB team logo" class="h-12 mr-3">
+                            <span class="font-bold">RCB</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500">06 APR</span>
+                            <div class="font-bold">3:30 PM</div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-bold">CSK</span>
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/138b2162-d703-4d97-9645-42edbb667c22.png" alt="Chennai Super Kings team logo" class="h-12 ml-3">
+                        </div>
+                    </div>
+                    <div class="text-center text-sm text-gray-600">
+                        M. Chinnaswamy Stadium, Bengaluru
+                    </div>
+                    <button class="w-full mt-4 bg-black hover:bg-gray-800 text-white py-2 rounded-lg font-bold">Get Tickets</button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="https://www.iplt20.com/matches/fixtures"><button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold">View Full Schedule</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Players Section -->
+    <section id="players" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">MEET THE TEAM</h2>
+            
+            <div class="tabs mb-8 flex justify-center border-b">
+                <button class="active px-4 py-2 font-medium" data-tab="all">All Players</button>
+                <button class="px-4 py-2 font-medium" data-tab="batsmen">Batsmen</button>
+                <button class="px-4 py-2 font-medium" data-tab="bowlers">Bowlers</button>
+                <button class="px-4 py-2 font-medium" data-tab="all-rounders">All-Rounders</button>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6" id="players-container">
+                <!-- Faf du Plessis -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300" data-category="batsmen">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/25da2eca-00c5-4277-a4ed-eae34ac2a62e.png" alt="Faf du Plessis in RCB jersey holding bat" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-lg">Faf du Plessis</h3>
+                            <div class="flex items-center text-white text-sm">
+                                <span class="mr-2">Batsman</span>
+                                <span>•</span>
+                                <span class="ml-2">Captain</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-2 py-1 text-xs font-bold">#12</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Matches: 132</span>
+                            <span>Runs: 3985</span>
+                        </div>
+                        <div class="stats-bar mb-2">
+                            <div class="stats-fill" style="width: 78%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">Bat Avg: 36.87</span>
+                            <span class="font-bold">SR: 133.21</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Virat Kohli -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300" data-category="batsmen">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/88fbe531-3f0f-42a0-87d4-8717f12d8b90.png" alt="Virat Kohli celebrating century in RCB colors" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-lg">Virat Kohli</h3>
+                            <div class="flex items-center text-white text-sm">
+                                <span class="mr-2">Batsman</span>
+                                <span>•</span>
+                                <span class="ml-2">Former Captain</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-2 py-1 text-xs font-bold">#18</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Matches: 235</span>
+                            <span>Runs: 7263</span>
+                        </div>
+                        <div class="stats-bar mb-2">
+                            <div class="stats-fill" style="width: 95%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">Bat Avg: 37.25</span>
+                            <span class="font-bold">SR: 130.02</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Glenn Maxwell -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300" data-category="all-rounders">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4af34500-f316-40a6-a8ed-a38de5e229d6.png" alt="Glenn Maxwell batting aggressively with RCB jersey" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-lg">Glenn Maxwell</h3>
+                            <div class="flex items-center text-white text-sm">
+                                <span>All-Rounder</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-2 py-1 text-xs font-bold">#32</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Matches: 122</span>
+                            <span>Runs: 2438</span>
+                        </div>
+                        <div class="stats-bar mb-2">
+                            <div class="stats-fill" style="width: 70%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">Bat Avg: 26.78</span>
+                            <span class="font-bold">Wkts: 29</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mohammed Siraj -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300" data-category="bowlers">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4dba3654-8d11-4422-a751-485bd5d51ed6.png" alt="Mohammed Siraj bowling in RCB kit with intense expression" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-lg">Mohammed Siraj</h3>
+                            <div class="flex items-center text-white text-sm">
+                                <span>Bowler</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-2 py-1 text-xs font-bold">#13</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Matches: 79</span>
+                            <span>Wickets: 78</span>
+                        </div>
+                        <div class="stats-bar mb-2">
+                            <div class="stats-fill" style="width: 68%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">Econ: 8.56</span>
+                            <span class="font-bold">Best: 4/21</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dinesh Karthik -->
+                <div class="player-card bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300" data-category="batsmen">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1f668108-45d9-4cd1-8925-18db5731b9e6.png" alt="Dinesh Karthik keeping wickets in RCB colors during match" class="w-full h-64 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h3 class="text-white font-bold text-lg">Dinesh Karthik</h3>
+                            <div class="flex items-center text-white text-sm">
+                                <span class="mr-2">Wicketkeeper</span>
+                                <span>•</span>
+                                <span class="ml-2">Batsman</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-2 py-1 text-xs font-bold">#7</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between text-sm text-gray-600 mb-2">
+                            <span>Matches: 242</span>
+                            <span>Runs: 4516</span>
+                        </div>
+                        <div class="stats-bar mb-2">
+                            <div class="stats-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="font-bold">Avg: 25.38</span>
+                            <span class="font-bold">SR: 132.64</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="https://www.iplt20.com/teams/royal-challengers-bengaluru"><button class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-bold">View Full Squad</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">TEAM STATISTICS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Batting Stats -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-center">Batting Statistics 2023</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Total Runs</span>
+                                <span class="font-bold">2689</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Highest Score</span>
+                                <span class="font-bold">263/5</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Average Score</span>
+                                <span class="font-bold">182.5</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">100s/50s</span>
+                                <span class="font-bold">3/15</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Strike Rate</span>
+                                <span class="font-bold">137.42</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bowling Stats -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-center">Bowling Statistics 2023</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Total Wickets</span>
+                                <span class="font-bold">82</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Best Figures</span>
+                                <span class="font-bold">5/20</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Average</span>
+                                <span class="font-bold">28.3</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">Economy Rate</span>
+                                <span class="font-bold">8.45</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium">4+ Wicket Hauls</span>
+                                <span class="font-bold">6</span>
+                            </div>
+                            <div class="stats-bar">
+                                <div class="stats-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Performance Charts -->
+            <div class="mt-12 bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-6 text-center">Season Performance</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="text-center font-medium mb-2">Wins/Losses</h4>
+                        <div class="flex justify-center">
+                            <div class="w-32 h-32 rounded-full border-8 border-red-600 relative">
+                                <div class="w-32 h-32 rounded-full border-8 border-gray-200 absolute top-0 left-0 -rotate-45" style="clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);"></div>
+                                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                                    <span class="text-2xl font-bold">7-7</span>
+                                    <span class="text-xs">Win-Loss</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-center font-medium mb-2">Win Percentage</h4>
+                        <div class="flex justify-center">
+                            <div class="w-32 h-32 rounded-full border-8 border-red-600 relative">
+                                <div class="absolute inset-0 flex items-center justify-center flex-col">
+                                    <span class="text-2xl font-bold">50%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-center font-medium mb-2">Playoff Appearances</h4>
+                        <div class="flex justify-center">
+                            <div class="w-32 h-32 rounded-full flex items-center justify-center" style="background: conic-gradient(#FF0000 72deg, #000000 288deg);">
+                                <div class="w-28 h-28 rounded-full bg-white flex items-center justify-center">
+                                    <div class="text-center">
+                                        <span class="text-2xl font-bold">8</span>
+                                        <p class="text-xs">In 16 Seasons</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">LATEST NEWS</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/77659396-ea24-4a3c-a60e-1c447ad48400.png" alt="RCB team celebrating victory in last match with players jumping in joy" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>28 March 2024</span>
+                            <span class="mx-2">•</span>
+                            <span>Match Report</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">RCB Clinch Thriller Against MI by 5 Runs</h3>
+                        <p class="text-gray-700 mb-4">Royal Challengers Bangalore held their nerve to defeat Mumbai Indians in a last-ball thriller at the Chinnaswamy Stadium...</p>
+                        <a href="#" class="text-red-600 font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+                
+                <!-- News 2 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/14850fcf-50fb-482d-a6fc-217b66eb3137.png" alt="Virat Kohli practicing in nets with focus during training session" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>26 March 2024</span>
+                            <span class="mx-2">•</span>
+                            <span>Player Focus</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Kohli Returns to Form With Brilliant 82*</h3>
+                        <p class="text-gray-700 mb-4">Virat Kohli silenced his critics with a masterclass innings against Kolkata Knight Riders, guiding RCB to a comfortable victory...</p>
+                        <a href="#" class="text-red-600 font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+                
+                <!-- News 3 -->
+                <div class="news-card bg-white rounded-lg overflow-hidden shadow-md border border-gray-100">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/21e0f2c4-0b5b-4667-9253-f063d9fbbea4.png" alt="RCB coaching staff analyzing game data on laptop during strategy session" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>24 March 2024</span>
+                            <span class="mx-2">•</span>
+                            <span>Team Strategy</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">RCB's New Bowling Strategy Pays Dividends</h3>
+                        <p class="text-gray-700 mb-4">The Bangalore franchise's revamped bowling attack, focusing on middle-over control, has shown remarkable improvement this season...</p>
+                        <a href="#" class="text-red-600 font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+               <a href="https://www.iplt20.com/news"><button class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-bold">View All News</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Zone Section -->
+    <section id="fan-zone" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">FAN ZONE</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Poll -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">FAN POLL</h3>
+                    <p class="mb-4">Who was RCB's MVP in the last match against MI?</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <input type="radio" id="poll-option1" name="poll" class="mr-2" checked>
+                            <label for="poll-option1">Virat Kohli (56 runs)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="poll-option2" name="poll" class="mr-2">
+                            <label for="poll-option2">Mohammed Siraj (3/22)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="poll-option3" name="poll" class="mr-2">
+                            <label for="poll-option3">Glenn Maxwell (42 runs & 1 wicket)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" id="poll-option4" name="poll" class="mr-2">
+                            <label for="poll-option4">Dinesh Karthik (Quickfire 28*)</label>
+                        </div>
+                    </div>
+                    <button class="mt-4 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium">Vote Now</button>
+                    
+                    <div class="mt-6 pt-6 border-t">
+                        <h4 class="font-bold mb-2">Previous Poll Results</h4>
+                        <p>Who should open with Faf du Plessis?</p>
+                        <div class="mt-3 space-y-2">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Virat Kohli</span>
+                                    <span>68%</span>
+                                </div>
+                                <div class="stats-bar">
+                                    <div class="stats-fill" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Rajat Patidar</span>
+                                    <span>22%</span>
+                                </div>
+                                <div class="stats-bar">
+                                    <div class="stats-fill" style="width: 22%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>Finn Allen</span>
+                                    <span>10%</span>
+                                </div>
+                                <div class="stats-bar">
+                                    <div class="stats-fill" style="width: 10%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Feed -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">SOCIAL BUZZ</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b4bf68cd-18d5-4205-bd83-2249967ef78a.png" alt="Twitter profile picture of excited RCB fan" class="rounded-full h-12 mr-3">
+                            <div>
+                                <p class="font-medium">@RCBforever</p>
+                                <p class="text-sm text-gray-700">That last over from Harshal was 🔥! The perfect mix of slower balls and yorkers! #PlayBold #RCB #IPL2024</p>
+                                <div class="flex items-center text-xs text-gray-500 mt-1">
+                                    <span class="mr-3">2h ago</span>
+                                    <span class="flex items-center mr-3"><i class="fas fa-heart mr-1"></i> 243</span>
+                                    <span class="flex items-center"><i class="fas fa-retweet mr-1"></i> 56</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e2fbd806-4c4b-4eba-a4b3-f238183a895c.png" alt="Facebook profile picture of RCB supporter wearing team jersey" class="rounded-full h-12 mr-3">
+                            <div>
+                                <p class="font-medium">Rahul Sharma</p>
+                                <p class="text-sm text-gray-700">The atmosphere at Chinnaswamy was electric tonight! Nothing beats watching RCB live! #RCBvMI #12thManArmy</p>
+                                <div class="flex items-center text-xs text-gray-500 mt-1">
+                                    <span class="mr-3">5h ago</span>
+                                    <span class="flex items-center mr-3"><i class="fas fa-heart mr-1"></i> 189</span>
+                                    <span class="flex items-center"><i class="fas fa-retweet mr-1"></i> 34</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5fb6edef-aab5-4b4f-9714-1f11e7bf989b.png" alt="Instagram profile picture of young RCB fan with face paint" class="rounded-full h-12 mr-3">
+                            <div>
+                                <p class="font-medium">@RCBsuperfan</p>
+                                <p class="text-sm text-gray-700">Meet the 12th man at Chinnaswamy today! The crowd was absolutely 🔥 supporting our boys in red and black! #PlayBold</p>
+                                <div class="flex items-center text-xs text-gray-500 mt-1">
+                                    <span class="mr-3">8h ago</span>
+                                    <span class="flex items-center mr-3"><i class="fas fa-heart mr-1"></i> 567</span>
+                                    <span class="flex items-center"><i class="fas fa-retweet mr-1"></i> 128</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex justify-center space-x-4">
+                        <a href="#" class="social-icon text-blue-500"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="social-icon text-blue-700"><i class="fab fa-facebook text-2xl"></i></a>
+                        <a href="#" class="social-icon text-pink-600"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="social-icon text-red-600"><i class="fab fa-youtube text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gallery -->
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-xl font-bold mb-4">FAN GALLERY</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6727c3ac-09da-4b9d-b03b-202f39bfb727.png" alt="RCB fans cheering in stadium with red and black face paint" class="rounded-lg h-40 object-cover">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b2351dac-6ae4-4bd9-9a67-f20a1486cb8e.png" alt="Young fan wearing RCB jersey holding sign supporting team" class="rounded-lg h-40 object-cover">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/58b5c459-7f94-4816-906d-31aeb99ca4ab.png" alt="Group of friends celebrating RCB victory with team flag" class="rounded-lg h-40 object-cover">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8ceff002-c0f9-4ef9-818e-c264b43b67ef.png" alt="RCB supporters creating human pyramid during match" class="rounded-lg h-40 object-cover">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2475f9f3-e9a9-4748-8b1b-5df6d7a76bac.png" alt="Family dressed in RCB colors posing for photo at stadium" class="rounded-lg h-40 object-cover">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6e0a17cc-b806-492b-904f-ef1acb7626d0.png" alt="RCB fan with elaborate team-themed costume dancing in stands" class="rounded-lg h-40 object-cover">
+                </div>
+                <button class="mt-6 bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg font-medium">Upload Your Photos</button>
+            </div>
+            
+            <!-- Forum -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-4">FAN FORUM</h3>
+                <div class="space-y-6">
+                    <!-- Forum Post 1 -->
+                    <div class="border-b pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9bfd9197-40df-4f3e-8670-2cdf20856767.png" alt="Forum user profile picture of RCB enthusiast" class="rounded-full h-10 mr-3">
+                                <div>
+                                    <p class="font-bold">RCBWarrior</p>
+                                    <p class="text-xs text-gray-500">Member since 2019</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">2 hours ago</span>
+                        </div>
+                        <h4 class="font-medium text-lg mb-1">Our Middle Order Looks Solid This Season</h4>
+                        <p class="text-gray-700 text-sm mb-2">With Maxwell in form and Karthik finishing well, I think we finally have the middle order we've been missing...</p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span class="mr-3">8 replies</span>
+                            <span class="mr-3">32 views</span>
+                            <button class="text-red-600 hover:underline">Reply</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Forum Post 2 -->
+                    <div class="border-b pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b029c170-8a9c-4def-830d-cbf03e577cec.png" alt="Forum user profile picture of cricket analyst" class="rounded-full h-10 mr-3">
+                                <div>
+                                    <p class="font-bold">CricketGuru</p>
+                                    <p class="text-xs text-gray-500">Member since 2021</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">5 hours ago</span>
+                        </div>
+                        <h4 class="font-medium text-lg mb-1">Analysis of Our Bowling in Powerplays</h4>
+                        <p class="text-gray-700 text-sm mb-2">Siraj and Hazlewood are doing a decent job, but we're still conceding too many in the first 6 overs compared to other teams...</p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span class="mr-3">15 replies</span>
+                            <span class="mr-3">84 views</span>
+                            <button class="text-red-600 hover:underline">Reply</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Forum Post 3 -->
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="flex items-center">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83d8665f-00cb-4a5c-9a2e-f8b71ec2f104.png" alt="Forum user profile picture of die-hard RCB supporter" class="rounded-full h-10 mr-3">
+                                <div>
+                                    <p class="font-bold">RedArmy4Life</p>
+                                    <p class="text-xs text-gray-500">Member since 2015</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500">1 day ago</span>
+                        </div>
+                        <h4 class="font-medium text-lg mb-1">Chinnaswamy Stadium Experience - Tips for New Visitors</h4>
+                        <p class="text-gray-700 text-sm mb-2">As someone who's been to every RCB home game since 2016, here are my tips for making the most of your stadium visit...</p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span class="mr-3">23 replies</span>
+                            <span class="mr-3">156 views</span>
+                            <button class="text-red-600 hover:underline">Reply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h4 class="font-bold mb-2">Start New Discussion</h4>
+                    <textarea class="w-full p-3 border rounded-lg mb-2" rows="3" placeholder="What's on your mind?"></textarea>
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium">Post</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-black text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-2">JOIN THE RCB NATION</h2>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive updates, player interviews, and special offers!</p>
+            <div class="flex flex-col sm:flex-row justify-center max-w-lg mx-auto">
+                <input type="email" placeholder="Your email address" class="px-4 py-3 rounded-lg sm:rounded-r-none text-black w-full sm:w-auto sm:flex-grow mb-2 sm:mb-0">
+                <button class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg sm:rounded-l-none font-bold">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2a2f4c3b-17ae-4889-99e6-c3a4b8557727.png" alt="RCB official logo with full team name and branding" class="h-12 mb-4">
+                    <p class="text-gray-400">The official fan hub for Royal Challengers Bangalore. Play Bold with us!</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/RoyalChallengersBangalore/" class="social-icon text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/rcbtweets" class="social-icon text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/royalchallengers.bengaluru/?hl=en" class="social-icon text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCCq1xDJMBRF61kiOgU90_kw" class="social-icon text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#team" class="text-gray-400 hover:text-white">Team Squad</a></li>
+                        <li><a href="#matches" class="text-gray-400 hover:text-white">Match Schedule</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tickets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Merchandise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Information</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About RCB</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+                    <address class="not-italic text-gray-400">
+                        <p class="mb-2">Royal Challengers Sports Pvt Ltd</p>
+                        <p class="mb-4">M. Chinnaswamy Stadium, Bengaluru, Karnataka 560001</p>
+                        <p class="mb-2"><i class="fas fa-phone mr-2"></i> +91 80 2345 6789</p>
+                        <p><i class="fas fa-envelope mr-2"></i> fans@royalchallengers.com</p>
+                    </address>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2024 Royal Challengers Bangalore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Player filter tabs
+        const tabs = document.querySelectorAll('.tabs button');
+        const players = document.querySelectorAll('.player-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                const category = tab.getAttribute('data-tab');
+                
+                players.forEach(player => {
+                    if (category === 'all' || player.getAttribute('data-category') === category) {
+                        player.style.display = 'block';
+                    } else {
+                        player.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            // Set the target date to April 2, 2024 at 19:30 (7:30 PM)
+            const targetDate = new Date('April 2, 2024 19:30:00');
+            const diff = targetDate - now;
+            
+            if (diff <= 0) {
+                // If target date has passed, set all to 00
+                document.querySelector('.days').textContent = '00';
+                document.querySelector('.hours').textContent = '00';
+                document.querySelector('.minutes').textContent = '00';
+                document.querySelector('.seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.querySelector('.days').textContent = days.toString().padStart(2, '0');
+            document.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+            document.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+            document.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        // Initial call
+        updateCountdown();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
